@@ -17,9 +17,10 @@ app.use(
 
 app.use("/file", fileRouter);
 
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-initDb();
-
-export default app;
+app.listen(port, async () => {
+  await initDb();
+  console.log(`Server is running port:${port} `);
+});
