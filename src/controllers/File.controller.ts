@@ -3,11 +3,6 @@ import { readFileService } from "../service/ReadFile.service";
 
 export class FileController {
   async file(req: Request, res: Response) {
-    console.log({
-      file: req.file,
-      body: req.body,
-      headers: req.headers["content-type"],
-    });
     try {
       const data = req.file;
       console.log(data);
@@ -23,7 +18,7 @@ export class FileController {
         throw new Error("Ocorreu um erro ao processar o arquivo.");
       }
 
-      res.send({
+      res.status(200).send({
         summary: summary,
         originalName: data.originalname,
       });
