@@ -8,10 +8,7 @@ const port = 3000;
 
 app.use(
   cors({
-    origin: ["*"],
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
+    origin: "*",
   })
 );
 
